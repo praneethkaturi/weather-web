@@ -5,8 +5,9 @@ const { dir } = require('console');
 const geocode = require('./utils/geocode')
 const weather = require('./utils/weather')
 const app = express()
-
+cors = require('cors')
 //console.log(__dirname);
+app.use(cors())
 
 const dir_path = path.join(__dirname, '../public/');
 const partials_path = path.join(__dirname, '../public/partials')
@@ -70,6 +71,6 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3010, () => {
+app.listen(3000, () => {
     console.log("Server is up on port 3000");
 })
