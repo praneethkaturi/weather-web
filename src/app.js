@@ -2,8 +2,8 @@ const path = require('path')
 const express = require('express');
 const hbs = require('hbs')
 const { dir } = require('console');
-const geocode = require('../utils/geocode')
-const weather = require('../utils/weather')
+const geocode = require('./utils/geocode')
+const weather = require('./utils/weather')
 const app = express()
 
 //console.log(__dirname);
@@ -70,6 +70,6 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
+app.listen(3010, () => {
     console.log("Server is up on port 3000");
 })
