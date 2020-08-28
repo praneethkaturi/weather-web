@@ -19,7 +19,18 @@ const weather = (data, callback) =>{
                 callback("Enter correct lat/long")
             }
             else{
-                const data = 'The temperature is ' + parsedData.current.temp + ' and cloud cover is ' + parsedData.current.clouds
+                const sunset_time_unix = parsedData.current.sunset
+                var sunset_time = new Date(sunset_time_unix * 1000);
+                var hours = sunset_time.getHours();
+                // Minutes part from the timestamp
+                var minutes = "0" + sunset_time.getMinutes();
+                // Seconds part from the timestamp
+                var seconds = "0" + sunset_time.getSeconds();
+                const feels_like = parsedData.current.feels_like
+
+                // Will display time in 10:30:23 format
+                var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+                const data = 'The temperature is ' + parsedData.current.temp + ', but it feels like it\'s ' + feels_like +'.The cloud cover is ' + parsedData.current.clouds + '. The sun will set at ' + formattedTime + '.\n'
                 callback("", data)
             }
         });
