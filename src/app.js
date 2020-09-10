@@ -7,7 +7,6 @@ const weather = require('./utils/weather')
 const app = express()
 const port = process.env.PORT || 3000
 cors = require('cors')
-//console.log(__dirname);
 app.use(cors())
 
 const dir_path = path.join(__dirname, '../public/');
